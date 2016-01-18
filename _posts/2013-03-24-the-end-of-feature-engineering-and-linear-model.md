@@ -29,7 +29,7 @@ title: 大数据：“人工特征工程+线性模型”的尽头
 
 另外一个例子是IBM的Watson。从下图中可以看出，虽然每次性能的提升基本都是靠引入了新数据和新特征，但提升幅度是越来越小，也越来越艰难。
 
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/deep-qa.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/deepqa.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 
 这解释了第一个问题，为什么特征数量的涨幅比当初预计的要少很多。一个特征团队，3个经验丰富的老大加上10个动手强的小弟，几个月就能把可能的特征发掘得差不多，然后再用1、2年把特征全部做进系统。再然后呢？就会被发现有点后续无力了，进入中年稳定期了。
