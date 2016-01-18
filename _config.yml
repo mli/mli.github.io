@@ -1,0 +1,23 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+# relative_permalinks: true
+
+# Setup
+title:               Mu's Blog
+tagline:             "Mu's Blog"
+description:         ''
+url:                 mli.github.io
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Mu Li
+  url:               www.cs.cmu.edu/~muli/
+  email:             muli@cs.cmu.edu
+
+gems:
+   - jekyll-paginate
+   - jekyll-gist
