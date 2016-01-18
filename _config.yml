@@ -20,3 +20,5 @@ author:
 gems:
    - jekyll-paginate
    - jekyll-gist
+
+markdown: kramdown

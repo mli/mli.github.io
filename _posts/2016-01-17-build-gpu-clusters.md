@@ -16,8 +16,8 @@ title: GPU折腾手记——2015
 
 对于GPU而言，简单来看有三个重要参数，**浮点运算能力**，**价格**与**功耗**。下面两个图比较了Nvidia Tesla，Geforce 700和900系列各卡的这三个参数（前两个参考了wikipedia，后一个是查询了amazon/newegg上的当前价格）。
 
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-watt.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto"}
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-price.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto" }
+<img src= https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-watt.png style="width:500px; display:block; margin-left:auto; margin-right:auto" />
+<img src=https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-price.png width=500 style="display:block; margin-left:auto; margin-right:auto"/>
 
 
 整体来看浮点运算和功耗成正比。在价格上，如不考虑土豪用Tesla系列话，N厂在消费级别卡上是一分钱一分货。目前的购买建议是优先考虑Titan X，但如果不是特别需要其12GB内存的话，则考虑浮点运算性价比更好的980 TI（6GB 内存）。但如果嫌980 TI功耗比过高的话，则考虑980. 除非有特别的理由，不推荐980之下的卡了。因为达到同样的计算能力，使用更便宜的卡会增加机器数量，可能导致其他配套成本（例如CPU，电源，主板）和维护成本的增加。（下面将会有血与泪的教训）。
@@ -34,7 +34,7 @@ GPU更新换代快，不宜大规模采购超出现在需求的机器。例如Nv
 
 | GPU | CPU | 内存 | 尺寸 | 单价 ($) |
 | --- | --- | ---: | ---: | ---: |
-| 2 x E5-2680 v2 | 2 x GTX 980 | 128G | 2U | 12k |
+| 2 x GTX 980 | 2 x E5-2680 v2 | 128G | 2U | 12k |
 | 2 x GTX 970 | i5-3437 | 32G | mid tower | $1.3k |
 | 4 x GTX 980 | E5-1650 | 64G | super tower | 6.5k |
 | 4 x GTX 750 TI | i7-4790 | 16G | full tower | 1k |
@@ -45,17 +45,17 @@ GPU更新换代快，不宜大规模采购超出现在需求的机器。例如Nv
 
 此集群是土豪系统组买的。配了当时最好的CPU之一，双40GB网络，光是交换机就花了10W刀。买回来后半年没人拆封，但被alex意外发现了。。。（下图是alex拆了一台在看配置）
 
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/alex_2u.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+<img src=https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/alex_2u.jpg style="width:400px; display:block; margin-left:auto; margin-right:auto" />
 
 于是我们厚脸皮的跑去说“来，我们帮你们装上，顺便出钱升级电源和买GPU，到时候共享给我们用一下就好了”。最后是alex从ebay上的某香港卖家买电源，dave去newegg买了卡。
 
 这个集群是我个人最爱，安装简单，2天全搞定。网络快到飞起，很适合做分布式运算。（下图是集群背部，红线是光钎网线）
 
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/mass_back.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+<img https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/mass_back.jpg style="width:400px; display:block; margin-left:auto; margin-right:auto" />
 
 因为是从CPU集群改装而来，CPU过于的好了，只能插双卡（因为不是为GPU设计，所以即使是2U机器也最多插双卡，而且是掰断了中间某个部件的情况下），内存对于双卡来说过于大了，网络也是过于土豪，根本用不完。而且经常长时间跑大任务，曾把电源给烧了。。。
 
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/fired.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" }
+<img https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/fired.jpg style="width:300px; display:block; margin-left:auto; margin-right:auto" />
 
 ### 双GTX 970集群
 
