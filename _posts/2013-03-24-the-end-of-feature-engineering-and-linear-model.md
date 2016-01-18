@@ -23,13 +23,13 @@ title: 大数据：“人工特征工程+线性模型”的尽头
 
 由此可以看出，特征工程建立在不断的深入理解问题和获取额外的数据源上。但问题是，通常根据数据人能抽象出来的特征总类很有限。例如，广告点击预测，这个被广告投放公司做得最透彻的问题，目前能抽象出来的特征完全可以写在一张幻灯片里。好理解的、方便拿来用的、干净的数据源也不会很多，对于广告无外乎是广告本身信息（标题、正文、样式），广告主信息（行业、地理位置、声望），和用户信息（性别、年龄、收入等个人信息，cookie、session等点击信息）。KDD CUP2013腾讯提供了广告点击预测的数据，就包含了其中很多。所以最终能得到的特征类数上限也就是数百。另外一个例子是，google使用的数据集里每个样本含有的特征数平均不超过100，可以推断他们的特征类数最多也只是数百。
 
-[](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/google-training-data.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/google-training-data.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 因此，新数据源和新特征的获得会越来越难。然而，模型的精度并不是随着特征的增长而线性提高。很多情况是指数。随着人工特征工程的深入，投入的人力和时间越来越长，得到的新特征对系统的提升却越来越少。最终，系统性能看上去似乎是停止增长了。Robin曾问过我老大一个问题：“机器学习还能持续为百度带来收益吗？” 但时候我的第一反应是，这个商人！现在想一想，Robin其实挺高瞻远瞩。
 
 另外一个例子是IBM的Watson。从下图中可以看出，虽然每次性能的提升基本都是靠引入了新数据和新特征，但提升幅度是越来越小，也越来越艰难。
 
-[](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/deep-qa.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/deep-qa.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 
 这解释了第一个问题，为什么特征数量的涨幅比当初预计的要少很多。一个特征团队，3个经验丰富的老大加上10个动手强的小弟，几个月就能把可能的特征发掘得差不多，然后再用1、2年把特征全部做进系统。再然后呢？就会被发现有点后续无力了，进入中年稳定期了。

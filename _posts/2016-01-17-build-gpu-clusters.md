@@ -17,7 +17,7 @@ title: GPU折腾手记——2015
 对于GPU而言，简单来看有三个重要参数，**浮点运算能力**，**价格**与**功耗**。下面两个图比较了Nvidia Tesla，Geforce 700和900系列各卡的这三个参数（前两个参考了wikipedia，后一个是查询了amazon/newegg上的当前价格）。
 
 ![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-watt.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto" :}
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-price.png){: width=500 style="display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-price.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto" :}
 
 
 整体来看浮点运算和功耗成正比。在价格上，如不考虑土豪用Tesla系列话，N厂在消费级别卡上是一分钱一分货。目前的购买建议是优先考虑Titan X，但如果不是特别需要其12GB内存的话，则考虑浮点运算性价比更好的980 TI（6GB 内存）。但如果嫌980 TI功耗比过高的话，则考虑980. 除非有特别的理由，不推荐980之下的卡了。因为达到同样的计算能力，使用更便宜的卡会增加机器数量，可能导致其他配套成本（例如CPU，电源，主板）和维护成本的增加。（下面将会有血与泪的教训）。
