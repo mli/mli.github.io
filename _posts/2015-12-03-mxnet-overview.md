@@ -27,12 +27,13 @@ title: MXNet设计和实现简介
 | Torch | Lua | - | CPU/GPU/FPGA | x | v | x |
 | Theano | Python | - | CPU/GPU | x | v | x |
 | TensorFlow | C++ | Python | CPU/GPU/Mobile | v | x | v |
-| MXNet | C++ | Python/R/Julia/Go | CPU/GPU/Mobile | v | v | v |
-（注，TensforFlow暂时没有公开其分布式实现）
+| MXNet[^1] | C++ | Python/R/Julia/Go | CPU/GPU/Mobile | v | v | v |
+
+[^1]: TensforFlow暂时没有公开其分布式实现
 
 MXNet的系统架构如下图所示：
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/sys.png){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/sys.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 从上到下分别为各种主语言的嵌入，编程接口（矩阵运算，符号表达式，分布式通讯），两种编程模式的统一系统实现，以及各硬件的支持。接下一章我们将介绍编程接口，然后下一章介绍系统实现。之后我们给出一些实验对比结果，以及讨论MXNet的未来。
 
@@ -42,14 +43,14 @@ MXNet的系统架构如下图所示：
 
 MXNet使用多值输出的符号表达式来声明计算图。符号是由操作子构建而来。一个操作子可以是一个简单的矩阵运算“+”，也可以是一个复杂的神经网络里面的层，例如卷积层。一个操作子可以有多个输入变量和多个输出变量，还可以有内部状态变量。一个变量既可以是自由的，我们可以之后对其赋值；也可以是某个操作子的输出。例如下面的代码中我们使用Julia来定义一个多层感知机，它由一个代表输入数据的自由变量，和多个神经网络层串联而成。
 
-```julia
+{% highlight julia %}
 using MXNet
 mlp = @mx.chain mx.Variable(:data) =>
   mx.FullyConnected(num_hidden=64) =>
   mx.Activation(act_type=:relu)    =>
   mx.FullyConnected(num_hidden=10) =>
   mx.Softmax()
-```
+{% endhighlight %}
 
 在执行一个符号表达式前，我们需要对所有的自由变量进行赋值。上例中，我们需要给定数据，和各个层里隐式定义的输入，例如全连接层的权重和偏值。我们同时要申明所需要的输出，例如softmax的输出。
 
@@ -59,24 +60,24 @@ mlp = @mx.chain mx.Variable(:data) =>
 
 MXNet提供命令式的张量计算来桥接主语言的和符号表达式。下面代码中，我们在GPU上计算矩阵和常量的乘法，并使用numpy来打印结果
 
-```python
+{% highlight python %}
 >>> import MXNet as mx
 >>> a = mx.nd.ones((2, 3),
 ... mx.gpu())
 >>> print (a * 2).asnumpy()
 [[ 2.  2.  2.]
  [ 2.  2.  2.]]
-```
+{% endhighlight %}
 
 另一方面，NDArray可以无缝和符号表达式进行对接。假设我们使用Symbol定义了一个神经网络，那么我们可以如下实现一个梯度下降算法
 
-```c++
+{% highlight c++ %}
 for (int i = 0; i < n; ++i) {
   net.forward();
   net.backward();
   net.weight -= eta * net.grad
 }
-```
+{% endhighlight %}
 
 这里梯度由Symbol计算而得。Symbol的输出结果均表示成NDArray，我们可以通过NDArray提供的张量计算来更新权重。此外，我们还利用了主语言的for循环来进行迭代，学习率eta也是在主语言中进行修改。
 
@@ -90,7 +91,7 @@ MXNet提供一个分布式的key-value存储来进行数据交换。它主要有
 
 在下面例子中，我们将前面的梯度下降算法改成分布式梯度下降。
 
-```c++
+{% highlight c++ %}
 KVStore kv("dist_async");
 kv.set_updater([](NDArray w, NDArray g) {
     w -= eta * g;
@@ -101,7 +102,7 @@ for (int i = 0; i < max_iter; ++i) {
    net.backward();
    kv.push(net.grad);
 }
-```
+{% endhighlight %}
 
 在这里我们先使用最终一致性模型创建一个kvstore，然后将更新函数注册进去。在每轮迭代前，每个计算节点先将最新的权重pull回来，之后将计算的得到的梯度push出去。kvstore将会利用更新函数来使用收到的梯度更新其所存储的权重。
 
@@ -117,7 +118,7 @@ for (int i = 0; i < max_iter; ++i) {
 
 MXNet实现了常用的优化算法来训练模型。用户只需要提供数据数据迭代器和神经网络的Symbol便可。此外，用户可以提供额外的KVStore来进行分布式的训练。例如下面代码使用分布式异步SGD来训练一个模型，其中每个计算节点使用两块GPU。
 
-```python
+{% highlight python %}
 import MXNet as mx
 model = mx.model.FeedForward(
     ctx                = [mx.gpu(0), mx.gpu(1)],
@@ -132,7 +133,7 @@ model.fit(
     eval_data          = val_iter,
     kvstore            = mx.kvstore.create('dist_async'),
     epoch_end_callback = mx.callback.do_checkpoint('model_'))
-```
+{% endhighlight %}
 
 ## 系统实现
 
@@ -140,7 +141,7 @@ model.fit(
 
 一个已经赋值的符号表达式可以表示成一个计算图。下图是之前定义的多层感知机的部分计算图，包含forward和backward。
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/graph.png){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/graph.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 其中圆表示变量，方框表示操作子，箭头表示数据依赖关系。在执行之前，MXNet会对计算图进行优化，以及为所有变量提前申请空间。
 
@@ -173,7 +174,7 @@ KVStore的实现是基于参数服务器。但它跟前面的工作有两个显�
 1. 我们通过引擎来管理数据一致性，这使得参数服务器的实现变得相当简单，同时使得KVStore的运算可以无缝的与其他结合在一起。
 2. 我们使用一个两层的通讯结构，原理如下图所示。第一层的服务器管理单机内部的多个设备之间的通讯。第二层服务器则管理机器之间通过网络的通讯。第一层的服务器在与第二层通讯前可能合并设备之间的数据来降低网络带宽消费。同时考虑到机器内和外通讯带宽和延时的不同性，我们可以对其使用不同的一致性模型。例如第一层我们用强的一致性模型，而第二层我们则使用弱的一致性模型来减少同步开销。
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/ps.png){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/ps.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 ### 可移植性
 
@@ -204,7 +205,7 @@ KVStore的实现是基于参数服务器。但它跟前面的工作有两个显�
 
 最后我们报告在分布式训练下的性能。我们使用imagenet 1k数据（120万224x224x3图片，1000类），并用googlenet加上batch normalization来训练。我们使用Amazon EC2 g2.8x，单机和多机均使用同样的参数，下图表示了使用单机和10台g2.8x时的收敛情况。
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/image/inception-with-bn-imagnet1k.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/image/inception-with-bn-imagnet1k.png){: style="width:700px; display:block; margin-left:auto; margin-right:auto" :}
 
 从训练精度来看，单机的收敛比多机快，这个符合预期，因为多机时有效的batch大小比单机要大，在处理同样多的数据上收敛通常会慢。但有意思的是两者在测试精度上非常相似。
 
@@ -223,7 +224,7 @@ MXNet是DMLC第一个结合了所有成员努力的项目，也同时吸引了�
 
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/input/IMG_4343.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/input/starry_night.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/output/4343_starry_night){: style="width:600px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/output/4343_starry_night.jpg){: style="width:600px; display:block; margin-left:auto; margin-right:auto" :}
 
 
  接下来我们希望能够在更多应用，例如语音、翻译、问答上有所产出。

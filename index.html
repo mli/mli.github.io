@@ -3,35 +3,56 @@ layout: default
 title: Home
 ---
 
+<div class="about">
+
+  <h1> About </h1>
+  My personal blog. More about <a href=http://www.cs.cmu.edu/~muli/>me</a>.
+
+</div>
 <div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+  <h1> All Posts </h1>
+  <ul>
+    {% for post in site.posts %}
+    <li> {{ post.date | date: "%b %-d, %Y" }} :
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+
+<!-- <div class="posts"> -->
+<!--   {% for post in paginator.posts %} -->
+<!--   <div class="post"> -->
+<!--     <h1 class="post-title"> -->
+<!--       <a href="{{ post.url }}"> -->
+<!--         {{ post.title }} -->
+<!--       </a> -->
+<!--     </h1> -->
+
+<!--     <span class="post-date">{{ post.date | date_to_string }}</span> -->
+
+<!--     {{ post.content }} -->
+<!--   </div> -->
+<!--   {% endfor %} -->
+<!-- </div> -->
+
+<!-- <div class="pagination"> -->
+<!--   {% if paginator.next_page %} -->
+<!--     <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a> -->
+<!--   {% else %} -->
+<!--     <span class="pagination-item older">Older</span> -->
+<!--   {% endif %} -->
+<!--   {% if paginator.previous_page %} -->
+<!--     {% if paginator.page == 2 %} -->
+<!--       <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a> -->
+<!--     {% else %} -->
+<!--       <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a> -->
+<!--     {% endif %} -->
+<!--   {% else %} -->
+<!--     <span class="pagination-item newer">Newer</span> -->
+<!--   {% endif %} -->
+<!-- </div> -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />
