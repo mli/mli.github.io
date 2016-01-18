@@ -204,7 +204,7 @@ KVStore的实现是基于参数服务器。但它跟前面的工作有两个显�
 
 最后我们报告在分布式训练下的性能。我们使用imagenet 1k数据（120万224x224x3图片，1000类），并用googlenet加上batch normalization来训练。我们使用Amazon EC2 g2.8x，单机和多机均使用同样的参数，下图表示了使用单机和10台g2.8x时的收敛情况。
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/paper/inception-with-bn-imagnet1k.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/image/inception-with-bn-imagnet1k.png){: style="width:400px; display:block; margin-left:auto; margin-right:auto" :}
 
 从训练精度来看，单机的收敛比多机快，这个符合预期，因为多机时有效的batch大小比单机要大，在处理同样多的数据上收敛通常会慢。但有意思的是两者在测试精度上非常相似。
 
@@ -221,9 +221,9 @@ MXNet是DMLC第一个结合了所有成员努力的项目，也同时吸引了�
 3. 更多编程语言。除了C++，目前MXNet对Python，R和Julia的支持比较完善。但我们希望还能有很多的语言，例如javascript。
 4. 更多的应用。我们之前花了很多精力在图片分类上，下面我们会考虑很多的应用。例如上周我们试了下如何利用一张图片的风格和一张图片的内容合成一张新图片。下图是利用我办公室窗景和梵高的starry night来合成图片
 
-![](https://raw.githubusercontent.com/dmlc/web-data/master/neural-style/input/IMG_4343.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
-![](https://raw.githubusercontent.com/dmlc/web-data/master/neural-style/input/starry_night.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
-![](https://raw.githubusercontent.com/dmlc/web-data/master/neural-style/output/4343_starry_night){: style="width:600px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/input/IMG_4343.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/input/starry_night.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" :}
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/neural-style/output/4343_starry_night){: style="width:600px; display:block; margin-left:auto; margin-right:auto" :}
 
 
  接下来我们希望能够在更多应用，例如语音、翻译、问答上有所产出。
