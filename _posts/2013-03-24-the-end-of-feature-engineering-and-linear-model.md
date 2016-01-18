@@ -54,4 +54,4 @@ title: 大数据：“人工特征工程+线性模型”的尽头
 
 我的结论是，大数据时代，虽然人工特征工程和线性模型将会被更广泛的事情，但它只是大数据应用的起点。而且，我们应该要迈过这个起点了。
 
-[^1]: 取名是<strong>D</strong>istributed<strong>a</strong>lgo<strong>r</strong>ithm for <strong>lin</strong>ear methods。
+[^1]: 取名是<strong>D</strong>istributed<strong>a</strong>lgo<strong>r</strong>ithm for <strong>lin</strong>ear methods。好玩的是，里面计算核心模块叫heart，络通讯模块叫telesthesia。数据是用类似bigtable的格式，叫cake，因为切起来很像蛋糕。
