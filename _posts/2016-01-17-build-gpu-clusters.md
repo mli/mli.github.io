@@ -16,8 +16,8 @@ title: GPU折腾手记——2015
 
 对于GPU而言，简单来看有三个重要参数，**浮点运算能力**，**价格**与**功耗**。下面两个图比较了Nvidia Tesla，Geforce 700和900系列各卡的这三个参数（前两个参考了wikipedia，后一个是查询了amazon/newegg上的当前价格）。
 
-![](imgs/gpu-watt.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto"}
-![](imgs/gpu-price.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto" }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-watt.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto"}
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/gpu-price.png){: style="width:500px; display:block; margin-left:auto; margin-right:auto" }
 
 
 整体来看浮点运算和功耗成正比。在价格上，如不考虑土豪用Tesla系列话，N厂在消费级别卡上是一分钱一分货。目前的购买建议是优先考虑Titan X，但如果不是特别需要其12GB内存的话，则考虑浮点运算性价比更好的980 TI（6GB 内存）。但如果嫌980 TI功耗比过高的话，则考虑980. 除非有特别的理由，不推荐980之下的卡了。因为达到同样的计算能力，使用更便宜的卡会增加机器数量，可能导致其他配套成本（例如CPU，电源，主板）和维护成本的增加。（下面将会有血与泪的教训）。
@@ -45,17 +45,17 @@ GPU更新换代快，不宜大规模采购超出现在需求的机器。例如Nv
 
 此集群是土豪系统组买的。配了当时最好的CPU之一，双40GB网络，光是交换机就花了10W刀。买回来后半年没人拆封，但被alex意外发现了。。。（下图是alex拆了一台在看配置）
 
-![](imgs/alex_2u.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/alex_2u.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
 于是我们厚脸皮的跑去说“来，我们帮你们装上，顺便出钱升级电源和买GPU，到时候共享给我们用一下就好了”。最后是alex从ebay上的某香港卖家买电源，dave去newegg买了卡。
 
 这个集群是我个人最爱，安装简单，2天全搞定。网络快到飞起，很适合做分布式运算。（下图是集群背部，红线是光钎网线）
 
-![](imgs/mass_back.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/mass_back.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
 因为是从CPU集群改装而来，CPU过于的好了，只能插双卡（因为不是为GPU设计，所以即使是2U机器也最多插双卡，而且是掰断了中间某个部件的情况下），内存对于双卡来说过于大了，网络也是过于土豪，根本用不完。而且经常长时间跑大任务，曾把电源给烧了。。。
 
-![](imgs/fired.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/fired.jpg){: style="width:300px; display:block; margin-left:auto; margin-right:auto" }
 
 ### 双GTX 970集群
 
@@ -63,27 +63,27 @@ GPU更新换代快，不宜大规模采购超出现在需求的机器。例如Nv
 
 下面是前三台订单，基本什么都是挑的最便宜的
 
-![](imgs/dual970order.png){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/dual970order.png){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
 
 之后又陆续买了几台，然后忽悠别组老师也投资买了几台。于是好一阵子组会都是装机大会。
 
-![](imgs/upgrade_cpu.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/upgrade_cpu.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
-![](imgs/build_hydrogen.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/build_hydrogen.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
 这个集群的优点是便宜，十台机器1W刀左右搞定（一个phd学生一年要花费老板10W+刀）。但由于是分多批买的，每次买都是挑当时最便宜的硬件，例如电源有4种（后来我们发现电源接GPU线是不通用的）。虽然GPU都是970，但来自4个不同的牌子，msi，evga, pny， gigabyte. 便宜硬件出错率高，不同牌子的硬件的维护是个噩梦。另外一个问题是机箱占地方，大小基本等价一个4U的机器了，而且就插了2卡，而4U机器现在基本可以插到8卡了。一开始没想到会买一大批，结果现在它占了我们小机房四分之一的空间。
 
-![](imgs/hydrogen.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/hydrogen.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
 ### 四卡GTX 980
 
 折腾得最多的机器，但仍然是最爱。当时装了一堆便宜机器后，想去弄个高大上点的：
 
-![](imgs/beast_order.png){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/beast_order.png){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
 
 alex手艺高超的把大把GPU，内存，硬盘晒进了一个mid tower，装完是这样的：
 
-![](imgs/build_beast.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/build_beast.jpg){: style="width:400px; display:block; margin-left:auto; margin-right:auto"  }
 
 结果发现散热是个大问题。一机箱太满，二机箱风扇不给力，三显卡风扇不给力。之后做了无数次测试，升级，期间烧坏了两快卡。目前机箱大了很多，从full tower变成了super tower，前后装满了风扇，硬盘都卸了，第一块坏的卡送修了，第二块懒得动了，现在跛着脚三卡在跑。
 
@@ -99,7 +99,7 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 刚买没几天。起因是上个月的NIPS我找N厂哭穷，人家见我长得眉清目秀（误）便送了一块卡。回来献给老板，老板因为国内某大厂赞助了些钱大手一挥补齐了剩下。往Supermicro 1U机器里塞了4快卡，内部空间寸土必争，花好几个小时才装好，一切都是刚好fit，特别治愈强迫症。
 
-![](imgs/quad_titan_x.jpg){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/quad_titan_x.jpg){: style="width:600px; display:block; margin-left:auto; margin-right:auto"  }
 
 因为没有什么剩余空间，且是长的串行结构散热（散热顺序是单GPU，双CPU，三GPU），所以风扇功率很大，噪音跟轰炸机一样。有点耗电，全力跑电流需要10A。不过其他没发现什么问题。用上它了之后小伙伴们就死活不下来去用的机器了。
 
@@ -113,4 +113,4 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 最后感谢alex，dave和各位小伙伴。下图拍于16年元旦夜。
 
-![](imgs/zhuangjixiaohuoban.jpg){: style="width:500px; display:block; margin-left:auto; margin-right:auto"  }
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/zhuangjixiaohuoban.jpg){: style="width:500px; display:block; margin-left:auto; margin-right:auto"  }

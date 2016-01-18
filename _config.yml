@@ -1,15 +1,15 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-# relative_permalinks: true
+# permalink:           pretty
+relative_permalinks: true
 
 # Setup
 title:               Mu's Blog
 tagline:             ''
 description:         ''
-url:                 mli.github.io
-baseurl:             ''
+url:                 "mli.github.io"
+# baseurl:             "mli.github.io/"
 paginate:            5
 
 # About/contact
