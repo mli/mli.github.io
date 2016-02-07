@@ -107,6 +107,14 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 因为没有什么剩余空间，且是长的串行结构散热（散热顺序是单GPU，双CPU，三GPU），所以风扇功率很大，噪音跟轰炸机一样。有点耗电，全力跑电流需要10A。不过其他没发现什么问题。用上它了之后小伙伴们就死活不下来去用的机器了。
 
+## 总结
+
+折腾硬件就跟其他很多事情一样，要么有钱，要么得有时间折腾。对一般玩家的建议是，如果只是上一两台，可以在newegg上多选多看；但如果是准备买数十台，建议还是用rack集群，模块化的设计不仅省空间，而且维护简单。不过最重要的还是，高兴就好。happy hacking!
+
+最后感谢alex，dave和各位小伙伴。下图拍于16年元旦夜。
+
+![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/zhuangjixiaohuoban.jpg){: style="width:500px; display:block; margin-left:auto; margin-right:auto"  }
+
 ## 购买推荐
 
 ### 2/6/16更新
@@ -127,12 +135,3 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 | 内存 | Kingston 16GB | 4 | 403 | [wiredzone](http://www.wiredzone.com/kingston-components-memory-ddr3-kth-pl316k4-64g-32028349) |
 | SSD | samsung 850 500GB | 1 | 153 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16820147373) |
 | HDD | samsung 2TB 5400 RPM | 2 | 188 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16822178627) |
-
-
-## 总结
-
-折腾硬件就跟其他很多事情一样，要么有钱，要么得有时间折腾。对一般玩家的建议是，如果只是上一两台，可以在newegg上多选多看；但如果是准备买数十台，建议还是用rack集群，模块化的设计不仅省空间，而且维护简单。不过最重要的还是，高兴就好。happy hacking!
-
-最后感谢alex，dave和各位小伙伴。下图拍于16年元旦夜。
-
-![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/zhuangjixiaohuoban.jpg){: style="width:500px; display:block; margin-left:auto; margin-right:auto"  }
