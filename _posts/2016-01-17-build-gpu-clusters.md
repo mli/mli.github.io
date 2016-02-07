@@ -115,7 +115,7 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 ![](https://raw.githubusercontent.com/mli/mli.github.io/master/imgs/zhuangjixiaohuoban.jpg){: style="width:500px; display:block; margin-left:auto; margin-right:auto"  }
 
-## 购买推荐
+## 附录：购买推荐
 
 ### 2/6/16更新
 
