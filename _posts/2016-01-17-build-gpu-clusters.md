@@ -6,7 +6,11 @@ comments: true
 title: GPU集群折腾手记——2015
 ---
 
-整个2015年都在买买买。。。买GPU。原因是想赶时髦去玩“深度学习”，但又口袋羞涩。于是整整一年都在各处比较，下单，拆，装，维护。为了省点钱煞费苦心，荒废了很多其他重要事情。所以想把经验教训写下来供各位DIY玩家参考。
+<div class="message">
+1. 2/6/2016 文末更新了购买推荐
+</div>
+
+整个2015年都在买买买。。。买GPU。于是整整一年都在各处比较，下单，拆，装，维护。为了省点钱煞费苦心，荒废了很多其他重要事情。所以想把经验教训写下来供各位DIY玩家参考。
 
 我们买GPU的目的是用来做**科学计算**，例如针对深度学习。另外两个GPU主要用途——游戏，挖矿——则不在此文讨论范围。而且此文针对性价比敏感人士，对于土豪人群，推荐直接上大厂整体GPU集群解决方案，可省去大量力气。
 
@@ -35,7 +39,7 @@ GPU更新换代快，不宜大规模采购超出现在需求的机器。例如Nv
 | GPU | CPU | 内存 | 尺寸 | 单价 ($) |
 | --- | --- | ---: | ---: | ---: |
 | 2 x GTX 980 | 2 x E5-2680 v2 | 128G | 2U | 12k |
-| 2 x GTX 970 | i5-3437 | 32G | mid tower | $1.3k |
+| 2 x GTX 970 | i5-3437 | 32G | mid tower | 1.3k |
 | 4 x GTX 980 | E5-1650 | 64G | super tower | 6.5k |
 | 4 x GTX 750 TI | i7-4790 | 16G | full tower | 1k |
 | 4 x K40 | 2 x E5-2670 | 64G | 4U | free |
@@ -103,9 +107,28 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 因为没有什么剩余空间，且是长的串行结构散热（散热顺序是单GPU，双CPU，三GPU），所以风扇功率很大，噪音跟轰炸机一样。有点耗电，全力跑电流需要10A。不过其他没发现什么问题。用上它了之后小伙伴们就死活不下来去用的机器了。
 
-### 接下来买什么？
+## 购买推荐
 
-因为已经有了些打底，接下来应该不会买超性价比机器了。下面如果有钱准备再烧几台4卡Titan X类似的配置，或者8卡4U的机器。不过可能要先静观下N厂和A厂动静。当然还有个主要问题是电力有些供应不足。
+- 2/6/2016更新
+
+使用下来对supermicro的4卡1U机器很是喜欢，一是占地小，二是性价比高，散热也没发现
+是大问题。下面推荐的4卡机器是之前买的便宜版，总价不到7K。相比之前的区别是
+
+  - 使用了老型号的CPU。据说是因为facebook处理了一大批机器，所以这个型号的翻新便宜到爆（几个月前的事情，前天才发现。。）。但性能对于GPU机器来说足够了。
+  - 因为CPU的缘故，可以使用老型号的主板。
+  - 128G内存完全没必要，64G绰绰有余。因为神经网络耗内存的是中间结果，那些不需要传回主内存。
+
+已经定了三台， 过些天再发体验报告.
+
+|     | 型号 | 个数 | 总价 ($) | link |
+| --- | --- | --- | --- | --- |
+| 机箱 | Supermicro SYS-1027GR-TQFT | 1 | 1477 | [wiredzone](http://www.wiredzone.com/supermicro-servers-1u-barebone-dual-processor-sys-1027gr-tqft-10021982) |
+| GPU | GTX Titan X | 4 | 4488 | [amazon](http://www.amazon.com/EVGA-GeForce-GAMING-Graphics-12G-P4-2992-KR/dp/B00UXTN5P0/ref=sr_1_1?s=pc&ie=UTF8&qid=1454810016&sr=1-1&keywords=titan+x) |
+| CPU | E5-2670 | 2 | 200 | [deepdiscountservers](http://www.deepdiscountservers.com/intel-xeon-e5-2670-2-6ghz-3-3ghz-turbo-20mb-l3-cache-lga2011-115w-eight-core.html) |
+| 内存 | Kingston 16GB | 4 | 403 | [wiredzone](http://www.wiredzone.com/kingston-components-memory-ddr3-kth-pl316k4-64g-32028349) |
+| SSD | samsunng 850 500GB | 1 | 153 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16820147373) |
+| HDD | samsung 2TB 5400 RPM | 2 | 188 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16822178627) |
+
 
 ## 总结
 
