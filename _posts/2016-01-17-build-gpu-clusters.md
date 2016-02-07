@@ -3,7 +3,7 @@ layout: post
 author: Mu Li
 categories: GPU
 comments: true
-title: GPU折腾手记——2015
+title: GPU集群折腾手记——2015
 ---
 
 整个2015年都在买买买。。。买GPU。原因是想赶时髦去玩“深度学习”，但又口袋羞涩。于是整整一年都在各处比较，下单，拆，装，维护。为了省点钱煞费苦心，荒废了很多其他重要事情。所以想把经验教训写下来供各位DIY玩家参考。
