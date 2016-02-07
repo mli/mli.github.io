@@ -120,13 +120,13 @@ Intel送了一个4U的机器，Nvidia送了4快K40。半个小时搞定，一切
 
 已经定了三台， 过些天再发体验报告.
 
-|     | 型号 | 个数 | 总价 ($) | link |
+|     | 型号 | 个数 | 总价 ($) | 购买 |
 | --- | --- | --- | --- | --- |
 | 机箱 | Supermicro SYS-1027GR-TQFT | 1 | 1477 | [wiredzone](http://www.wiredzone.com/supermicro-servers-1u-barebone-dual-processor-sys-1027gr-tqft-10021982) |
 | GPU | GTX Titan X | 4 | 4488 | [amazon](http://www.amazon.com/EVGA-GeForce-GAMING-Graphics-12G-P4-2992-KR/dp/B00UXTN5P0/ref=sr_1_1?s=pc&ie=UTF8&qid=1454810016&sr=1-1&keywords=titan+x) |
-| CPU | E5-2670 | 2 | 200 | [deepdiscountservers](http://www.deepdiscountservers.com/intel-xeon-e5-2670-2-6ghz-3-3ghz-turbo-20mb-l3-cache-lga2011-115w-eight-core.html) |
+| CPU | E5-2670 | 2 | 200 | [dds](http://www.deepdiscountservers.com/intel-xeon-e5-2670-2-6ghz-3-3ghz-turbo-20mb-l3-cache-lga2011-115w-eight-core.html) |
 | 内存 | Kingston 16GB | 4 | 403 | [wiredzone](http://www.wiredzone.com/kingston-components-memory-ddr3-kth-pl316k4-64g-32028349) |
-| SSD | samsunng 850 500GB | 1 | 153 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16820147373) |
+| SSD | samsung 850 500GB | 1 | 153 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16820147373) |
 | HDD | samsung 2TB 5400 RPM | 2 | 188 | [amazon](http://www.newegg.com/Product/Product.aspx?Item=N82E16822178627) |
 
 
